@@ -8,11 +8,16 @@ import java.util.Date;
 public class Excited extends Mood{
 
     public Excited(Date date) {
+
         super(date);
     }
 
     @Override
     public String format() {
+
         return "Excited!!";
     }
+
+
+
 }

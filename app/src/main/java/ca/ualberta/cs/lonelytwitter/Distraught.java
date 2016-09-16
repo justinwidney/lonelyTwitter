@@ -8,6 +8,7 @@ import java.util.Date;
 public class Distraught extends Mood{
 
     public Distraught(Date date) {
+
         super(date);
     }
 

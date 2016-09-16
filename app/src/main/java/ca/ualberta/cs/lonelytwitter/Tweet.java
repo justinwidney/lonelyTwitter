@@ -9,7 +9,8 @@ import java.util.Date;
 public abstract class Tweet {
     private String message;
     private Date date;
-    private ArrayList<Mood> mood;
+
+    private ArrayList<Mood> mood_list;
 
 
     public Tweet(String message) {
@@ -22,7 +23,7 @@ public abstract class Tweet {
     public Tweet(String message, Date date) {
         this.message = message;
         this.date = date;
-        this.mood = new ArrayList<Mood>();
+
 
 
     }
@@ -30,7 +31,7 @@ public abstract class Tweet {
     public Tweet(String message, Date date, String mood) {
         this.message = message;
         this.date = date;
-        this.mood = new ArrayList<Mood>();
+        this.mood_list = new ArrayList<Mood>();
     }
 
     public abstract Boolean isImportant();
@@ -56,11 +57,14 @@ public abstract class Tweet {
     }
 
     public ArrayList<Mood> getMood() {
-        return mood;
+        return mood_list;
     }
 
     public void setMood(ArrayList<Mood> mood) {
-        this.mood = mood;
+        this.mood_list = mood;
+
+
+
     }
 }
 
