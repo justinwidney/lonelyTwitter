@@ -23,7 +23,7 @@ public class LonelyTwitterActivity extends Activity {
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
-	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,9 @@ public class LonelyTwitterActivity extends Activity {
 				String text = bodyText.getText().toString();
 
 				Date theDate = new Date();
+
 				Tweet newTweet = new NormalTweet(text);
+
 				try {
 					newTweet.setMessage("test");
 				} catch (TweetTooLongException e) {
