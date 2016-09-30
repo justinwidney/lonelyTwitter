@@ -70,17 +70,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TweetListTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TweetListTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/ca/ualberta/cs/lonelytwitter/TweetListTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.5300752">
+              <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#286#287#0" expanded="true" />
-                <element signature="e#365#366#0" expanded="true" />
-                <element signature="e#1674#1681#0" expanded="true" />
-                <element signature="e#1731#1738#0" expanded="true" />
+                <element signature="e#343#344#0" expanded="true" />
+                <element signature="e#422#423#0" expanded="true" />
+                <element signature="e#1732#1739#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TweetList.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TweetList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/lonelytwitter/TweetList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40789473">
-              <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#209#216#0" expanded="true" />
@@ -1591,8 +1590,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="758" />
-    <option name="y" value="57" />
+    <option name="x" value="503" />
+    <option name="y" value="31" />
     <option name="width" value="1400" />
     <option name="height" value="974" />
   </component>
@@ -1904,7 +1903,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="758" y="57" width="1400" height="974" extended-state="0" />
+    <frame x="503" y="31" width="1400" height="974" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2058,6 +2057,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/lonelytwitter/TweetList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#209#216#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#599#600#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/ca/ualberta/cs/lonelytwitter/LonelyTwitterActivityTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2068,31 +2084,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/ca/ualberta/cs/lonelytwitter/TweetListTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.5300752">
+          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#286#287#0" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-            <element signature="e#1674#1681#0" expanded="true" />
-            <element signature="e#1731#1738#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ca/ualberta/cs/lonelytwitter/TweetList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40789473">
-          <caret line="40" column="21" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#209#216#0" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#392#393#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#639#640#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#343#344#0" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+            <element signature="e#1732#1739#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,9 @@ package ca.ualberta.cs.lonelytwitter;
 
 import android.test.ActivityInstrumentationTestCase2;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -57,6 +59,7 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
         try {
             list.addTweet(tweet);
             assertTrue(false);
+
         } catch (IllegalArgumentException e) {
 
         }
@@ -65,7 +68,7 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
 
     public void testgetTweets() {
         List<Tweet> testlist = new ArrayList<Tweet>();
-        List<Tweet> chronoList = new ArrayList<Tweet>();
+
 
         TweetList list = new TweetList();
         Tweet tweet = new NormalTweet("1");
@@ -74,6 +77,7 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
         list.addTweet(tweet);
         list.addTweet(tweet2);
         list.addTweet(tweet3);
+        List<Tweet> chronoList = Arrays.asList(tweet,tweet2,tweet3);
 
         chronoList = list.getTweets();
 
