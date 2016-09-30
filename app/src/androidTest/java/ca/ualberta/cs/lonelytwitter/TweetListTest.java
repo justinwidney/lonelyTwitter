@@ -5,6 +5,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,13 +26,7 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
     }*/
 
 
-    public void testHasTweet() {
-        TweetList list = new TweetList();
-        Tweet tweet = new NormalTweet("Test");
-        list.addTweet(tweet);
-        assertTrue(list.hasTweet(tweet));
 
-    }
 
     public void testDelete() {
         TweetList list = new TweetList();
@@ -51,39 +46,52 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
 
     }
 
-
-    public void testAddTweets() {
+    // return true if catches exception
+    public void testaddTweets() {
         TweetList list = new TweetList();
         Tweet tweet = new NormalTweet("test");
         list.addTweet(tweet);
+
         try {
             list.addTweet(tweet);
             assertTrue(false);
-
-        } catch (IllegalArgumentException e) {
-
+        }
+        catch (IllegalArgumentException e) {
+            assertTrue(true);
         }
 
     }
 
-    public void testgetTweets() {
-        List<Tweet> testlist = new ArrayList<Tweet>();
 
+    public void testgetTweets() {
 
         TweetList list = new TweetList();
+        ArrayList<Tweet> orderTweets = new ArrayList<Tweet>();
+
+
         Tweet tweet = new NormalTweet("1");
         Tweet tweet2 = new NormalTweet("2");
         Tweet tweet3 = new NormalTweet("3");
+
+        tweet.setDate(new Date(15));
+        tweet2.setDate(new Date(20));
+        tweet3.setDate(new Date(19));
+
+        // add tweets in proper order
+        orderTweets.add(tweet);
+        orderTweets.add(tweet3);
+        orderTweets.add(tweet2);
+
+        // add tweets in other order
         list.addTweet(tweet);
         list.addTweet(tweet2);
         list.addTweet(tweet3);
-        List<Tweet> chronoList = Arrays.asList(tweet,tweet2,tweet3);
 
-        chronoList = list.getTweets();
 
-        assertEquals(chronoList,testlist);
+        assertEquals(list.getTweets(),orderTweets);
+
     }
-
+    // test count
     public void testgetCount() {
         TweetList list = new TweetList();
         Tweet tweet = new NormalTweet("test");
@@ -91,6 +99,8 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
         assertEquals(list.getCount(), 1);
     }
 
+
+    // test if contains tweet
     public void testhasTweet() {
         TweetList list = new TweetList();
         Tweet tweet = new NormalTweet("test");

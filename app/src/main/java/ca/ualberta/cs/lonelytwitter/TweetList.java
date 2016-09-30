@@ -9,22 +9,32 @@ import java.util.List;
 public class TweetList {
     private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
     private int count;
-    private List chronoList;
+    private Tweet tempTweet;
+    private int length;
 
     public TweetList() {
 
     }
 
     public Boolean hasTweet(Tweet tweet) {
+
         return tweets.contains(tweet);
     }
 
     public void addTweet(Tweet tweet) {
-        if (tweets.contains(tweet)) {
+
+        if (tweets.contains(tweet))
+            {
+                throw new IllegalArgumentException();
+            }
+            else {
+                tweets.add(tweet);
+            }
+
 
         }
-        else { tweets.add(tweet); }
-    }
+
+
 
     public void delete(Tweet tweet) {
         tweets.remove(tweet);
@@ -34,22 +44,28 @@ public class TweetList {
     return tweets.get(index);
     }
 
-    public List getTweets() {
-        int number = 0;
-        while (!tweets.isEmpty()) {
-            chronoList.add(tweets.get(number));
-            number++;
+    // rearranges order
+    public ArrayList<Tweet> getTweets() {
+        ArrayList<Tweet> sOrder = new ArrayList<Tweet>(tweets);
+        ArrayList<Tweet> fOrder = new ArrayList<Tweet>();
+
+        while (length < sOrder.size()) {
+            tempTweet = sOrder.get(0);
+            for(Tweet tweets: sOrder) {
+                if(tweets.getDate().getTime() < tempTweet.getDate().getTime()) {
+                    tempTweet = tweets;
+                }
+            }
+
+            fOrder.add(tempTweet);
+            sOrder.remove(tempTweet);
         }
-        return chronoList;
+
+
+        return fOrder;
 
     }
 
-   /* public boolean hasTweet(Tweet tweet) {
-        if(tweets.contains(tweet)) {
-            return true;
-        }
-        return false;
-    } */
 
     public int getCount() {
         count = tweets.size();
