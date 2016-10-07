@@ -27,7 +27,8 @@ import java.util.List;
 public class TweetList {
     private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
     private int count;
-    private List chronoList;
+    private Tweet tempTweet;
+    private int length;
 
     /**
      * Instantiates a new Tweet list.
@@ -43,6 +44,7 @@ public class TweetList {
      * @return the boolean
      */
     public Boolean hasTweet(Tweet tweet) {
+
         return tweets.contains(tweet);
     }
 
@@ -52,11 +54,19 @@ public class TweetList {
      * @param tweet the tweet
      */
     public void addTweet(Tweet tweet) {
-        if (tweets.contains(tweet)) {
+
+        if (tweets.contains(tweet))
+            {
+                throw new IllegalArgumentException();
+            }
+            else {
+                tweets.add(tweet);
+            }
+
 
         }
-        else { tweets.add(tweet); }
-    }
+
+
 
     /**
      * Delete the passed tweet from the ArrayList.
@@ -77,6 +87,7 @@ public class TweetList {
     return tweets.get(index);
     }
 
+<<<<<<< HEAD
     /**
      * Gets tweets in a chronological order
      *
@@ -87,8 +98,27 @@ public class TweetList {
         while (!tweets.isEmpty()) {
             chronoList.add(tweets.get(number));
             number++;
+=======
+    // rearranges order
+    public ArrayList<Tweet> getTweets() {
+        ArrayList<Tweet> sOrder = new ArrayList<Tweet>(tweets);
+        ArrayList<Tweet> fOrder = new ArrayList<Tweet>();
+
+        while (length < sOrder.size()) {
+            tempTweet = sOrder.get(0);
+            for(Tweet tweets: sOrder) {
+                if(tweets.getDate().getTime() < tempTweet.getDate().getTime()) {
+                    tempTweet = tweets;
+                }
+            }
+
+            fOrder.add(tempTweet);
+            sOrder.remove(tempTweet);
+>>>>>>> e698258cc5c4b780e124aaf53bde42804701b198
         }
-        return chronoList;
+
+
+        return fOrder;
 
     }
 
