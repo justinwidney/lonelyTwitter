@@ -22,9 +22,18 @@ import junit.framework.TestCase;
  */
 public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 {
 
+
+    /**
+     * Instantiates a new Lonely twitter activity test.
+     */
     public LonelyTwitterActivityTest() {
         super(ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity.class);
     }
+
+    /**
+     * Test the Activity Starts
+     */
+
 
     public void testStart() throws Exception {
         Activity activity = getActivity();
