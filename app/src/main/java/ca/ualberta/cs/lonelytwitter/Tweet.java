@@ -1,16 +1,39 @@
+/**
+ * copyright (C) 2016 Team 20, CMPUT301, University of Alberta - All rights Reserved.
+ * you may use, copy or distribute this code under terms and conditions of University of Alberta
+ * and Code of Student Behaviour.
+ * Please contact jwidney@ualberta.ca for more details or questions
+ *
+ *
+ *
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by jwidney on 9/15/16.
+ * This is abstract class that contain all parameters of our Tweets.
+ * It is an abstract class extended by different types of Tweets.
+ * It created from a string message and contains a date
+ *
+ * @see NormalTweet
+ * @see ImportantTweet
+ * @author jwidney
  */
+
 public abstract class Tweet {
     private String message;
     private Date date;
 
 
+    /**
+     * Instantiates a new Tweet with a string message.
+     * A date is automatically generated
+     *
+     * @param message the message
+     */
     public Tweet(String message) {
         this.message = message;
         this.date = new Date();
@@ -18,6 +41,12 @@ public abstract class Tweet {
 
     }
 
+    /**
+     * Instantiates a new Tweet with a string message and Date.
+     *
+     * @param message the message
+     * @param date    the date
+     */
     public Tweet(String message, Date date) {
         this.message = message;
         this.date = date;
@@ -32,25 +61,38 @@ public abstract class Tweet {
     }
 
 
-
+    /**
+     * Method call to see if a Tweet is important
+     *
+     * @return the boolean
+     */
     public abstract Boolean isImportant();
 
-    public void setMessage(String message) throws TweetTooLongException {
-        if (message.length() > 140) {
-            throw new TweetTooLongException();
-        }
-        this.message = message;
 
-    }
 
+    /**
+     * Sets date.
+     *
+     * @param date the date
+     */
     public void setDate(Date date) {
         this.date = date;
     }
 
+    /**
+     * Gets message.
+     *
+     * @return the message
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     * Gets date.
+     *
+     * @return the date
+     */
     public Date getDate() {
         return date;
     }

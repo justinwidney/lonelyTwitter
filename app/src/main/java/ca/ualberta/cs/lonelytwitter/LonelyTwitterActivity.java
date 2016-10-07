@@ -1,3 +1,15 @@
+/**
+ * copyright (C) 2016 Team 20, CMPUT301, University of Alberta - All rights Reserved.
+ * you may use, copy or distribute this code under terms and conditions of University of Alberta
+ * and Code of Student Behaviour.
+ * Please contact jwidney@ualberta.ca for more details or questions
+ *
+ *
+ *
+ */
+
+
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -23,15 +35,40 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+
+/**
+ * This class is the main view class in lonelyTwitter class.
+ * It handles b
+ * It deals with user inputs saves/loads them in/from the file FILE_NAME (file.save).
+ * <p> You can access this file from Android Device Monitor</p>
+ *
+ *
+ * @author Justin
+ * @see ca.ualberta.cs.lonelytwitter.NormalTweet
+ * @see java.io.BufferedReader
+ * @see ca.ualberta.cs.lonelytwitter.TweetList
+ * @since 1.4
+ */
+
+
 public class LonelyTwitterActivity extends Activity {
 
-	private static final String FILENAME = "file.sav";
+	/**
+	 * this is the name of the file that is saved in your virtual device.
+	 * You can access it through Android Device Monitor by selecting your app,
+	 * then data -> data -> file.sav
+	 * @see NormalTweet
+	 * @author Justin
+	 */
+
+	private static final String FILE_NAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
 	private ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
 	private ArrayAdapter<Tweet> adapter;
 
-	/** Called when the activity is first created. */
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -75,10 +112,18 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+	/**
+	 *
+	 * This method load the json file,  and generates the tweets from its contents/
+	 * @exception  FileNotFoundException
+	 * @throws RuntimeException
+	 */
+
+
 	private void loadFromFile() {
 		ArrayList<String> tweets = new ArrayList<String>();
 		try {
-			FileInputStream fis = openFileInput(FILENAME);
+			FileInputStream fis = openFileInput(FILE_NAME);
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
 			Gson gson = new Gson();
 
@@ -98,11 +143,16 @@ public class LonelyTwitterActivity extends Activity {
 
 
 
-
+	/**
+	 *
+	 * This method saves the tweetList,  and generates the a Json from its contents/
+	 * @exception  FileNotFoundException
+	 * @throws RuntimeException
+	 */
 
 	private void saveInFile() {
 		try {
-			FileOutputStream fos = openFileOutput(FILENAME,0);
+			FileOutputStream fos = openFileOutput(FILE_NAME,0);
 			OutputStreamWriter writer = new OutputStreamWriter(fos);
 			Gson gson = new Gson();
 			gson.toJson(tweetList, writer);
@@ -112,7 +162,7 @@ public class LonelyTwitterActivity extends Activity {
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			throw new RuntimeException();
+			tweetList = new ArrayList<Tweet>();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
