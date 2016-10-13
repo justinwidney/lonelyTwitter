@@ -30,6 +30,7 @@ public class TweetList {
     private Tweet tempTweet;
     private int length;
 
+
     /**
      * Instantiates a new Tweet list.
      */
@@ -87,18 +88,14 @@ public class TweetList {
     return tweets.get(index);
     }
 
-<<<<<<< HEAD
+
     /**
      * Gets tweets in a chronological order
      *
      * @return the tweets
      */
-    public List getTweets() {
-        int number = 0;
-        while (!tweets.isEmpty()) {
-            chronoList.add(tweets.get(number));
-            number++;
-=======
+
+
     // rearranges order
     public ArrayList<Tweet> getTweets() {
         ArrayList<Tweet> sOrder = new ArrayList<Tweet>(tweets);
@@ -114,7 +111,7 @@ public class TweetList {
 
             fOrder.add(tempTweet);
             sOrder.remove(tempTweet);
->>>>>>> e698258cc5c4b780e124aaf53bde42804701b198
+
         }
 
 
