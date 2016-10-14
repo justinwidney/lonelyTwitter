@@ -94,7 +94,34 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2<
 
     }
 
+    // Add A tweet to list, click the tweet and start new Activity and check message = tweet
 
+    public void testClickEditTweetActivity(){
+        LonelyTwitterActivity activity = (LonelyTwitterActivity)solo.getCurrentActivity();
+
+        solo.assertCurrentActivity("Wrong Activity", LonelyTwitterActivity.class);
+        solo.clickOnButton("Clear");
+
+
+        solo.enterText((EditText) solo.getView(R.id.body), "Test Tweet!");
+        solo.clickOnButton("Save");
+        solo.waitForText("Test Tweet!");
+
+        final ListView oldTweetList = activity.getOldTweetsList();
+        Tweet tweet = (Tweet) oldTweetList.getItemAtPosition(0);
+        assertEquals("Test Tweet!", tweet.getMessage());
+
+        solo.clickInList(0);
+
+        solo.assertCurrentActivity("Wrong Activity!", EditTweetActivity.class);
+        EditTweetActivity activity1 = (EditTweetActivity)solo.getCurrentActivity();
+
+        assertTrue(solo.waitForText("Test Tweet!"));
+
+        solo.waitForText("Test Tweet!");
+        assertEquals("Test Tweet!", activity1.getMessage());
+
+    }
 
 
     @Override
