@@ -25,13 +25,19 @@ import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -42,11 +48,10 @@ import com.google.gson.reflect.TypeToken;
  * It deals with user inputs saves/loads them in/from the file FILE_NAME (file.save).
  * <p> You can access this file from Android Device Monitor</p>
  *
- *
  * @author Justin
- * @see ca.ualberta.cs.lonelytwitter.NormalTweet
- * @see java.io.BufferedReader
- * @see ca.ualberta.cs.lonelytwitter.TweetList
+ * @see NormalTweet
+ * @see BufferedReader
+ * @see TweetList
  * @since 1.4
  */
 
@@ -57,16 +62,26 @@ public class LonelyTwitterActivity extends Activity {
 	 * this is the name of the file that is saved in your virtual device.
 	 * You can access it through Android Device Monitor by selecting your app,
 	 * then data -> data -> file.sav
-	 * @see NormalTweet
+	 *
 	 * @author Justin
+	 * @see NormalTweet
 	 */
 
+	private Activity activity = this;
 	private static final String FILE_NAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
 	private ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
 	private ArrayAdapter<Tweet> adapter;
+	/**
+	 * ATTENTION: This was auto-generated to implement the App Indexing API.
+	 * See https://g.co/AppIndexing/AndroidStudio for more information.
+	 */
 
+
+	public ListView getOldTweetsList() {
+		return oldTweetsList;
+	}
 
 
 	@Override
@@ -101,21 +116,37 @@ public class LonelyTwitterActivity extends Activity {
 
 			}
 		});
+
+
+		oldTweetsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+				String clickedTweet = tweetList.get(position).getMessage();
+				Intent intent = new Intent(activity, EditTweetActivity.class);
+				intent.putExtra("message", clickedTweet);
+				startActivity(intent);
+			}
+		});
+
+
+
 	}
 
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
+		;
 		adapter = new ArrayAdapter<Tweet>(this,
 				R.layout.list_item, tweetList);
 		oldTweetsList.setAdapter(adapter);
+
 	}
 
 	/**
-	 *
 	 * This method load the json file,  and generates the tweets from its contents/
-	 * @exception  FileNotFoundException
+	 *
+	 * @throws FileNotFoundException
 	 * @throws RuntimeException
 	 */
 
@@ -128,7 +159,8 @@ public class LonelyTwitterActivity extends Activity {
 			Gson gson = new Gson();
 
 			//Code Taken from http://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt
-			Type listType = new TypeToken<ArrayList<NormalTweet>>(){}.getType();
+			Type listType = new TypeToken<ArrayList<NormalTweet>>() {
+			}.getType();
 			tweetList = gson.fromJson(in, listType);
 
 		} catch (FileNotFoundException e) {
@@ -142,22 +174,20 @@ public class LonelyTwitterActivity extends Activity {
 	}
 
 
-
 	/**
-	 *
 	 * This method saves the tweetList,  and generates the a Json from its contents/
-	 * @exception  FileNotFoundException
+	 *
+	 * @throws FileNotFoundException
 	 * @throws RuntimeException
 	 */
 
 	private void saveInFile() {
 		try {
-			FileOutputStream fos = openFileOutput(FILE_NAME,0);
+			FileOutputStream fos = openFileOutput(FILE_NAME, 0);
 			OutputStreamWriter writer = new OutputStreamWriter(fos);
 			Gson gson = new Gson();
 			gson.toJson(tweetList, writer);
 			writer.flush();
-
 
 
 		} catch (FileNotFoundException e) {
@@ -168,5 +198,13 @@ public class LonelyTwitterActivity extends Activity {
 			e.printStackTrace();
 			throw new RuntimeException();
 		}
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+
+
+
 	}
 }
