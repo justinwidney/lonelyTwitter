@@ -34,25 +34,27 @@ public abstract class Tweet {
      *
      * @param message the message
      */
-    public Tweet(String message) {
+
+    // #4
+    // changed constructor to protected for abstract class
+    protected Tweet(String message) {
         this.message = message;
         this.date = new Date();
 
 
     }
 
-    /**
-     * Instantiates a new Tweet with a string message and Date.
-     *
-     * @param message the message
-     * @param date    the date
-     */
-    public Tweet(String message, Date date) {
+
+
+    // #1
+    // Removed Constructor that isn't used & needs a date object
+
+    /*public Tweet(String message, Date date) {
         this.message = message;
         this.date = date;
 
 
-    }
+    }*/
 
 
     @Override

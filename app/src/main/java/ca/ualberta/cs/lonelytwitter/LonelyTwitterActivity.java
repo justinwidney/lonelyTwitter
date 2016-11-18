@@ -21,12 +21,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+// #2 Deleted unused imports eg.
 import java.util.Date;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,9 +35,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -200,11 +197,12 @@ public class LonelyTwitterActivity extends Activity {
 		}
 	}
 
-	@Override
+	// Removed Empty Methods
+	/* @Override
 	public void onStop() {
 		super.onStop();
 
 
 
-	}
+	} */
 }

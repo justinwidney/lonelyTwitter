@@ -8,7 +8,8 @@ import android.widget.TextView;
 public class EditTweetActivity extends Activity {
 
     private String message;
-    private Activity activity = this;
+    // #5 removed unused private fields
+    //private Activity activity = this;
 
 
 

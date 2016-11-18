@@ -26,9 +26,7 @@ import java.util.List;
  */
 public class TweetList {
     private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
-    private int count;
-    private Tweet tempTweet;
-    private int length;
+
 
 
     /**
@@ -98,10 +96,15 @@ public class TweetList {
 
     // rearranges order
     public ArrayList<Tweet> getTweets() {
+
+        // #3
+        // no longer declared private fields only used once
+        Tweet tempTweet;
+
         ArrayList<Tweet> sOrder = new ArrayList<Tweet>(tweets);
         ArrayList<Tweet> fOrder = new ArrayList<Tweet>();
 
-        while (length < sOrder.size()) {
+        while (fOrder.size() < sOrder.size()) {
             tempTweet = sOrder.get(0);
             for(Tweet tweets: sOrder) {
                 if(tweets.getDate().getTime() < tempTweet.getDate().getTime()) {
@@ -126,6 +129,9 @@ public class TweetList {
      * @return the count
      */
     public int getCount() {
+        // #3
+        // no longer declared private fields only used once
+        int count;
         count = tweets.size();
         return count;
     }
