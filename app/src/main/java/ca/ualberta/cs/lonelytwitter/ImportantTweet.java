@@ -10,8 +10,6 @@
 
 package ca.ualberta.cs.lonelytwitter;
 
-import java.util.Date;
-
 /**
  * This is a class used for Important Tweets
  * @author jwidney

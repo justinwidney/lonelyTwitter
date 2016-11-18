@@ -147,9 +147,11 @@ public class LonelyTwitterActivity extends Activity {
 	 * @throws RuntimeException
 	 */
 
+	// Got rid of unused method 
+	/* private void loadFromFile() {
 
-	private void loadFromFile() {
-		ArrayList<String> tweets = new ArrayList<String>();
+		//ArrayList<String> tweets = new ArrayList<String>();
+
 		try {
 			FileInputStream fis = openFileInput(FILE_NAME);
 			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
@@ -168,7 +170,7 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 
-	}
+	} */
 
 
 	/**
